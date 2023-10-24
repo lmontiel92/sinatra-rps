@@ -12,33 +12,23 @@ get("/rock") do
   
   moves = ["rock", "paper", "scissors"]
 
-  comp_move = moves.sample
+  @comp_move = moves.sample
 
-  if comp_move == "rock"
-    outcome = "We tied!"
-
-  end
-
-  if comp_move == "paper"
-    outcome = "We lost!"
+  if @comp_move == "rock"
+    @outcome = "We tied!"
 
   end
 
-  if comp_move == "scissors"
-    outcome = "We won!"
+  if @comp_move == "paper"
+    @outcome = "We lost!"
 
   end
-"
-<h2>
-  We played rock!
-</h2>
 
-<h2>
- They played #{comp_move}!
-</h2>
+  if @comp_move == "scissors"
+    @outcome = "We won!"
 
-<h2>
-  #{outcome}
-</h2>
-"
+  end
+
+  erb(:zebra)
+
 end
